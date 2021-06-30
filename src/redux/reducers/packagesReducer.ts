@@ -5,26 +5,37 @@ interface PackageState {
 }
 
 interface SearchPackagesAction {
-  type: 'search_packages';
+  type: ActionType.SEARCH_PACKAGES;
 }
 
 interface SearchPackagesSuccessAction {
-  type: 'search_packages_success';
+  type: ActionType.SEARCH_PACKAGES_SUCCESS;
   payload: string[];
 }
 
 interface SearchPackagesErrorAction {
-  type: 'search_packages_error';
+  type: ActionType.SEARCH_PACKAGES_ERROR;
   payload: string;
 }
 
-const reducer = (state: PackageState, action): PackageState => {
+type Action =
+  | SearchPackagesAction
+  | SearchPackagesSuccessAction
+  | SearchPackagesErrorAction;
+
+enum ActionType {
+  SEARCH_PACKAGES = 'search_packages',
+  SEARCH_PACKAGES_SUCCESS = 'search_packages_success',
+  SEARCH_PACKAGES_ERROR = 'search_packages_error',
+}
+
+const reducer = (state: PackageState, action: Action): PackageState => {
   switch (action.type) {
-    case 'search_packages':
+    case ActionType.SEARCH_PACKAGES:
       return { loading: true, error: null, data: [] };
-    case 'search_packages_success':
+    case ActionType.SEARCH_PACKAGES_SUCCESS:
       return { loading: false, error: null, data: action.payload };
-    case 'search_packages_error':
+    case ActionType.SEARCH_PACKAGES_ERROR:
       return { loading: false, error: action.payload, data: [] };
     default:
       return state;
