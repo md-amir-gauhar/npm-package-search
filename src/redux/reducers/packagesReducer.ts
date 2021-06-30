@@ -1,32 +1,10 @@
+import { ActionType } from '../action-types/index';
+import { Action } from '../actions/index';
+
 interface PackageState {
   loading: boolean;
   error: string | null;
   data: string[];
-}
-
-interface SearchPackagesAction {
-  type: ActionType.SEARCH_PACKAGES;
-}
-
-interface SearchPackagesSuccessAction {
-  type: ActionType.SEARCH_PACKAGES_SUCCESS;
-  payload: string[];
-}
-
-interface SearchPackagesErrorAction {
-  type: ActionType.SEARCH_PACKAGES_ERROR;
-  payload: string;
-}
-
-type Action =
-  | SearchPackagesAction
-  | SearchPackagesSuccessAction
-  | SearchPackagesErrorAction;
-
-enum ActionType {
-  SEARCH_PACKAGES = 'search_packages',
-  SEARCH_PACKAGES_SUCCESS = 'search_packages_success',
-  SEARCH_PACKAGES_ERROR = 'search_packages_error',
 }
 
 const reducer = (state: PackageState, action: Action): PackageState => {
