@@ -117,3 +117,17 @@ a:hover {
 .login {
   border: 1px solid #cccccc !important;
 }
+
+.error {
+  display: flex;
+  height: 70vh;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.1;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

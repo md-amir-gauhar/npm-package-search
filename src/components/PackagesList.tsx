@@ -2,12 +2,15 @@ import { useState } from 'react';
 
 import { useTypedSelector } from '../hooks/UseTypedSelector';
 import { UseActions } from '../hooks/useActions';
+import ErrorPage from './ErrorPage';
+import LoaderSpinner from './LoaderSpinner';
 
 const PackagesList: React.FC = () => {
   const [input, setInput] = useState('');
   const { searchPackages } = UseActions();
 
   const { data, loading, error } = useTypedSelector((state) => state.packages);
+  console.log(data, loading, error);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -74,8 +77,9 @@ const PackagesList: React.FC = () => {
           </div>
         </div>
       </header>
-      {error && <h3>{error}</h3>}
-      {loading && <h3>Loading.....</h3>}
+
+      {error && <ErrorPage />}
+      {loading && <LoaderSpinner />}
       {!error && !loading && data}
     </div>
   );

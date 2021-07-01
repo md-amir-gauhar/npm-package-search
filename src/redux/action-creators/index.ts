@@ -27,10 +27,10 @@ export const searchPackages = (term: string) => {
         type: ActionType.SEARCH_PACKAGES_SUCCESS,
         payload: names,
       });
-    } catch (error: any) {
+    } catch (err: any) {
       dispatch({
         type: ActionType.SEARCH_PACKAGES_ERROR,
-        payload: error.message,
+        payload: err.message,
       });
     }
   };
