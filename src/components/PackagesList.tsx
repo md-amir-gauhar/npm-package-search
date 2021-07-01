@@ -1,9 +1,13 @@
 import { useState } from 'react';
+
+import { useTypedSelector } from '../hooks/UseTypedSelector';
 import { UseActions } from '../hooks/useActions';
 
 const PackagesList: React.FC = () => {
   const [input, setInput] = useState('');
   const { searchPackages } = UseActions();
+
+  const { data, loading, error } = useTypedSelector((state) => state.packages);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -60,6 +64,7 @@ const PackagesList: React.FC = () => {
               type="search"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              placeholder="search packages"
             />
             <button type="submit">search</button>
           </form>
@@ -69,6 +74,9 @@ const PackagesList: React.FC = () => {
           </div>
         </div>
       </header>
+      {error && <h3>{error}</h3>}
+      {loading && <h3>Loading.....</h3>}
+      {!error && !loading && data}
     </div>
   );
 };
