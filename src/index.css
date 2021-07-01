@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+a:hover {
+  color: lightgray;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__top {
+  height: 40px;
+  background-color: #cb3837;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.header__top__menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.header__bottom {
+  height: 75px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.header__logo__container {
+  flex: 0.1;
+}
+
+.header__logo {
+  height: 45px;
+  object-fit: contain;
+}
+
+.header__bottom > form {
+  flex: 0.7;
+  max-width: 800px;
+  min-width: 600px;
+  height: 50px;
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 15px;
+}
+
+.header__bottom > form > input {
+  flex: 1;
+  background-color: transparent;
+  margin-left: 10px;
+  font-size: 16px;
+  letter-spacing: 0px;
+  border: none;
+  outline: unset;
+  padding-right: 10px;
+  caret-color: red;
+}
+
+.header__bottom > form > button {
+  height: 50px;
+  font-family: 'Poppins';
+  letter-spacing: 0.3px;
+  font-size: 18px;
+  font-weight: 300;
+  background-color: #231f20;
+  color: white;
+  width: 100px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.header__buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__buttons > button {
+  height: 45px;
+  width: 85px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.header__buttons > button:hover {
+  color: gray;
+}
+
+.login {
+  border: 1px solid #cccccc !important;
+}
