@@ -7,7 +7,7 @@ interface PackageState {
   data: string[];
 }
 
-const reducer = (state: PackageState, action: Action): PackageState => {
+const PackagesReducer = (state: PackageState, action: Action): PackageState => {
   switch (action.type) {
     case ActionType.SEARCH_PACKAGES:
       return { loading: true, error: null, data: [] };
@@ -20,4 +20,4 @@ const reducer = (state: PackageState, action: Action): PackageState => {
   }
 };
 
-export default reducer;
+export default PackagesReducer;
