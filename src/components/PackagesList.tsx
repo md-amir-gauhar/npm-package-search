@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { actionCreators } from '../redux';
+import { UseActions } from '../hooks/useActions';
 
 const PackagesList: React.FC = () => {
   const [input, setInput] = useState('');
-  const dispatch = useDispatch();
+  const { searchPackages } = UseActions();
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(actionCreators.searchPackages(input));
+
+    searchPackages(input);
   };
 
   return (
