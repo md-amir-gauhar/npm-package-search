@@ -4,6 +4,11 @@ import { useTypedSelector } from '../hooks/UseTypedSelector';
 import { UseActions } from '../hooks/useActions';
 import ErrorPage from './ErrorPage';
 import LoaderSpinner from './LoaderSpinner';
+import PackageAccordion from './PackageAccordion';
+
+interface PackageDetails {
+  name: string;
+}
 
 const PackagesList: React.FC = () => {
   const [input, setInput] = useState('');
@@ -17,6 +22,8 @@ const PackagesList: React.FC = () => {
 
     searchPackages(input);
   };
+
+  console.log(data);
 
   return (
     <div>
@@ -80,7 +87,17 @@ const PackagesList: React.FC = () => {
 
       {error && <ErrorPage />}
       {loading && <LoaderSpinner />}
-      {!error && !loading && data}
+      {!error &&
+        !loading &&
+        data.map((x: any) => (
+          <PackageAccordion
+            name={x.name}
+            description={x.description}
+            npm={x.links.npm}
+            repository={x.links.repository}
+            homepage={x.links.homepage}
+          />
+        ))}
     </div>
   );
 };
